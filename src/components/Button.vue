@@ -5,6 +5,7 @@ const { label, variant = 'primary', disabled = false } = defineProps<{
   label: string
   variant?: 'primary' | 'secondary'
   disabled?: boolean
+  test?: string
 }>()
 
 </script>

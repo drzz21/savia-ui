@@ -3,5 +3,5 @@ import Button from './components/Button.vue'
 </script>
 
 <template>
-  <Button label="Click me" variant="primary" />
+  <Button label="Click me" variant="tertiary" size="small" type="text"/>
 </template>

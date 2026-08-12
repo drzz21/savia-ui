@@ -60,6 +60,9 @@ importers:
       vite:
         specifier: ^8.0.10
         version: 8.0.10(@types/node@24.12.2)(esbuild@0.27.7)(jiti@2.7.0)
+      vite-plugin-css-injected-by-js:
+        specifier: ^5.0.2
+        version: 5.0.2(vite@8.0.10(@types/node@24.12.2)(esbuild@0.27.7)(jiti@2.7.0))
       vite-plugin-dts:
         specifier: ^5.0.3
         version: 5.0.3(@vue/language-core@3.2.8)(esbuild@0.27.7)(typescript@6.0.3)(vite@8.0.10(@types/node@24.12.2)(esbuild@0.27.7)(jiti@2.7.0))
@@ -1539,6 +1542,11 @@ packages:
     resolution: {integrity: sha512-Pp6GSwGP/NrPIrxVFAIkOQeyw8lFenOHijQWkUTrDvrF4ALqylP2C/KCkeS9dpUM3KvYRQhna5vt7IL95+ZQ9w==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
+
+  vite-plugin-css-injected-by-js@5.0.2:
+    resolution: {integrity: sha512-Hvg48QfYsCL53ju9T5zTC0Ofg90XLa8t5zhhKmPYbayoMQieNcQDkkRX8pv4TAcKPZwVisLFiwDy5uBjOn+3Ow==}
+    peerDependencies:
+      vite: '>8.0.0-0'
 
   vite-plugin-dts@5.0.3:
     resolution: {integrity: sha512-gIth6NdCEHWPiiRMCK3N6C8WjvdsrtEQrmsiG8h6Ov+lFP+b07Y+wcs9H0H7n146l0PDTYK4cQN1vgeG1pMdRQ==}
@@ -3052,6 +3060,10 @@ snapshots:
   use-sync-external-store@1.6.0(react@19.2.6):
     dependencies:
       react: 19.2.6
+
+  vite-plugin-css-injected-by-js@5.0.2(vite@8.0.10(@types/node@24.12.2)(esbuild@0.27.7)(jiti@2.7.0)):
+    dependencies:
+      vite: 8.0.10(@types/node@24.12.2)(esbuild@0.27.7)(jiti@2.7.0)
 
   vite-plugin-dts@5.0.3(@vue/language-core@3.2.8)(esbuild@0.27.7)(typescript@6.0.3)(vite@8.0.10(@types/node@24.12.2)(esbuild@0.27.7)(jiti@2.7.0)):
     dependencies:

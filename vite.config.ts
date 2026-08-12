@@ -3,6 +3,7 @@ import { defineConfig } from 'vite';
 import tailwindcss from '@tailwindcss/vite';
 import vue from '@vitejs/plugin-vue';
 import dts from 'vite-plugin-dts';
+import cssInjectedByJsPlugin from 'vite-plugin-css-injected-by-js';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { storybookTest } from '@storybook/addon-vitest/vitest-plugin';
@@ -16,9 +17,10 @@ export default defineConfig({
     tailwindcss(),
     dts({
       insertTypesEntry: true,
-      outDir: 'dist',
+      outDirs: 'dist',
       tsconfigPath: './tsconfig.app.json',
     }),
+    cssInjectedByJsPlugin(),
   ],
 
   resolve: {
@@ -34,7 +36,6 @@ export default defineConfig({
       name: 'SaviaUI',
       formats: ['es', 'cjs'],
       fileName: (format) => `savia-ui.${format === 'es' ? 'mjs' : 'cjs'}`,
-      cssFileName: 'style',
     },
     rollupOptions: {
       // No bundlear dependencias externas

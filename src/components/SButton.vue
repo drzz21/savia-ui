@@ -12,7 +12,7 @@ const {
 	iconLeft,
 	iconRight,
 } = defineProps<{
-	label?: string;
+	label: string;
 	variant?: 'primary' | 'secondary' | 'tertiary' | 'danger' | 'ghost';
 	type?: 'default' | 'outlined' | 'text';
 	disabled?: boolean;
@@ -34,7 +34,7 @@ function handleClick(event: MouseEvent) {
 }
 
 const button = cva(
-	'inline-flex items-center justify-center gap-2 font-bold rounded transition-colors cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2',
+	'inline-flex items-center justify-center gap-2 font-bold rounded transition-colors focus-visible:outline-2 focus-visible:outline-offset-2',
 	{
 		variants: {
 			variant: {
@@ -95,7 +95,7 @@ const button = cva(
 	<button
 		:class="[
 			button({ variant, type, size, fullWidth }),
-			{ 'opacity-50 cursor-not-allowed': disabled || loading },
+			disabled || loading ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer',
 		]"
 		:disabled="disabled || loading"
 		:aria-busy="loading || undefined"

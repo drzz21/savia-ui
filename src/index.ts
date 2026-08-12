@@ -1,0 +1,5 @@
+// savia-ui — entry point de la librería
+import './style.css';
+
+export { default as Button } from '/components/Button.vue';
+export { default as Card } from './components/Card.vue';

@@ -16,9 +16,9 @@ const code = `<SButton label="Submit" :shadow="true" />
     </div>
     <SCard>
       <div class="flex flex-wrap gap-4">
-        <SButton label="Mint glow" variant="primary" :shadow="true" />
-        <SButton label="Blue glow" variant="secondary" :shadow="true" />
-        <SButton label="Coral glow" variant="danger" :shadow="true" />
+        <SButton label="Mint shadow" variant="primary" :shadow="true" />
+        <SButton label="Blue shadow" variant="secondary" :shadow="true" />
+        <SButton label="Coral shadow" variant="danger" :shadow="true" />
       </div>
     </SCard>
     <div class="pt-4 space-y-3">

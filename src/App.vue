@@ -5,6 +5,7 @@ import { useRoute, useRouter } from 'vue-router';
 const route = useRoute();
 const router = useRouter();
 const menuOpen = ref(false);
+const baseUrl = import.meta.env.BASE_URL;
 
 // Secciones colapsables con sus patterns
 const nav = [
@@ -120,7 +121,7 @@ function isChildActive(parentTo: string, hash: string) {
         <!-- Logo y nombre -->
         <div class="flex items-center gap-2.5">
           <svg class="size-8 text-rain-mint" aria-hidden="true">
-            <use href="/icons.svg#leaf" />
+            <use :href="`${baseUrl}icons.svg#leaf`" />
           </svg>
           <span class="font-display text-2xl font-extrabold tracking-tight text-mist">Savia UI</span>
         </div>

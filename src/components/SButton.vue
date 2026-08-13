@@ -2,6 +2,8 @@
 import { cva } from 'class-variance-authority';
 import { computed } from 'vue';
 
+const baseUrl = import.meta.env.BASE_URL;
+
 const {
 	label,
 	variant = 'primary',
@@ -151,7 +153,7 @@ const shadowClass = computed(() => {
 
 		<!-- Icono izquierdo (sprite SVG) -->
 		<svg v-else-if="iconLeft" aria-hidden="true">
-			<use :href="`/icons.svg#${iconLeft}`" />
+			<use :href="`${baseUrl}icons.svg#${iconLeft}`" />
 		</svg>
 
 		<!-- Label o slot personalizado -->
@@ -159,7 +161,7 @@ const shadowClass = computed(() => {
 
 		<!-- Icono derecho (sprite SVG) -->
 		<svg v-if="!loading && iconRight" aria-hidden="true">
-			<use :href="`/icons.svg#${iconRight}`" />
+			<use :href="`${baseUrl}icons.svg#${iconRight}`" />
 		</svg>
 	</button>
 </template>

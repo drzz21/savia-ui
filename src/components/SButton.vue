@@ -10,7 +10,8 @@ const {
 	type = 'default',
 	size = 'medium',
 	fullWidth = false,
-	shadow = false,
+	glow = false,
+	shadow=false,
 	iconLeft,
 	iconRight,
 } = defineProps<{
@@ -22,7 +23,8 @@ const {
 	size?: 'small' | 'medium' | 'large';
 	fullWidth?: boolean;
 	/** Agrega una sombra coloreada debajo del botón, usando el color de la variante */
-	shadow?: boolean;
+	glow?: boolean;
+	shadow?:boolean;
 	/** Nombre del símbolo SVG del sprite público (icons.svg) */
 	iconLeft?: string;
 	iconRight?: string;
@@ -95,8 +97,8 @@ const button = cva(
 );
 
 /** Shadow classes mapped by variant color */
-const shadowClass = computed(() => {
-	if (!shadow) return '';
+const glowClass = computed(() => {
+	if (!glow) return '';
 	const map: Record<string, string> = {
 		primary: 'shadow-[0_4px_20px_rgba(183,225,203,0.4)] hover:shadow-[0_6px_28px_rgba(183,225,203,0.5)]',
 		secondary: 'shadow-[0_4px_20px_rgba(121,181,217,0.4)] hover:shadow-[0_6px_28px_rgba(121,181,217,0.5)]',
@@ -106,12 +108,27 @@ const shadowClass = computed(() => {
 	};
 	return map[variant] ?? '';
 });
+
+/** Shadow classes mapped by variant color */
+const shadowClass = computed(() => {
+	if (!shadow) return '';
+	const map: Record<string, string> = {
+		primary: 'shadow-[0_6px_0_0_rgba(130,190,160,0.6)] hover:shadow-[0_8px_0_0_rgba(130,190,160,0.7)]',
+		secondary: 'shadow-[0_6px_0_0_rgba(90,155,185,0.6)] hover:shadow-[0_8px_0_0_rgba(90,155,185,0.7)]',
+		tertiary: 'shadow-[0_6px_0_0_rgba(120,145,135,0.5)] hover:shadow-[0_8px_0_0_rgba(120,145,135,0.6)]',
+		danger: 'shadow-[0_6px_0_0_rgba(220,100,80,0.6)] hover:shadow-[0_8px_0_0_rgba(220,100,80,0.7)]',
+		ghost: '',
+	};
+	return map[variant] ?? '';
+});
+
 </script>
 
 <template>
 	<button
 		:class="[
 			button({ variant, type, size, fullWidth }),
+			glowClass,
 			shadowClass,
 			disabled || loading ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer',
 		]"

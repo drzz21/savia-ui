@@ -39,7 +39,8 @@
     "vue": "^3.4.0"
   },
   "dependencies": {
-    "class-variance-authority": "^0.7.1"
+    "class-variance-authority": "^0.7.1",
+    "vue-router": "^5.2.0"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^5.1.2",

@@ -11,7 +11,12 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      redirect: '/theme',
+      redirect: '/install',
+    },
+    {
+      path: '/install',
+      name: 'install',
+      component: () => import('./pages/InstallPage.vue'),
     },
     {
       path: '/theme',
@@ -32,6 +37,11 @@ const router = createRouter({
       path: '/code',
       name: 'code',
       component: () => import('./pages/CodePage.vue'),
+    },
+    {
+      path: '/support',
+      name: 'support',
+      component: () => import('./pages/DonatePage.vue'),
     },
   ],
 });

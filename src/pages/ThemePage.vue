@@ -4,11 +4,11 @@ import SCard from '../components/SCard.vue';
 
 <template>
   <div class="space-y-12">
-    <h2 class="font-display text-3xl font-extrabold tracking-tight text-mist">Tema</h2>
+    <h2 class="font-display text-3xl font-extrabold tracking-tight text-mist">Theme</h2>
 
-    <!-- Paleta -->
+    <!-- Color palette -->
     <div class="space-y-4">
-      <h3 class="text-sm font-semibold text-leaf-muted uppercase tracking-wide">Paleta de colores</h3>
+      <h3 class="text-sm font-semibold text-leaf-muted uppercase tracking-wide">Color palette</h3>
       <div class="grid grid-cols-4 gap-3">
         <div class="space-y-1.5">
           <div class="h-14 rounded-[var(--radius-field)] bg-garden-night border border-leaf-muted/20"></div>
@@ -45,26 +45,26 @@ import SCard from '../components/SCard.vue';
       </div>
     </div>
 
-    <!-- Tipografia -->
+    <!-- Typography -->
     <div class="space-y-4">
-      <h3 class="text-sm font-semibold text-leaf-muted uppercase tracking-wide">Tipografia</h3>
+      <h3 class="text-sm font-semibold text-leaf-muted uppercase tracking-wide">Typography</h3>
       <SCard>
         <div class="space-y-4">
           <div>
             <p class="text-xs text-leaf-muted mb-1">Display — Figtree 800</p>
-            <p class="font-display text-4xl font-extrabold tracking-[-0.04em] leading-[0.98]">El jardin nocturno</p>
+            <p class="font-display text-4xl font-extrabold tracking-[-0.04em] leading-[0.98]">Lorem ipsum dolor sit</p>
           </div>
           <div class="border-t border-leaf-muted/10 pt-4">
             <p class="text-xs text-leaf-muted mb-1">Body — Nunito Sans 500</p>
-            <p class="text-base">Componentes construidos sobre la calma de una paleta oscura y organica.</p>
+            <p class="text-base">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</p>
           </div>
         </div>
       </SCard>
     </div>
 
-    <!-- Radios y spacing -->
+    <!-- Radius and spacing -->
     <div class="space-y-4">
-      <h3 class="text-sm font-semibold text-leaf-muted uppercase tracking-wide">Radios y spacing</h3>
+      <h3 class="text-sm font-semibold text-leaf-muted uppercase tracking-wide">Radius & spacing</h3>
       <SCard>
         <div class="flex gap-6 items-end">
           <div class="text-center space-y-2">

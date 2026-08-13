@@ -7,6 +7,7 @@ const nav = [
   { to: '/theme', label: 'Theme' },
   { to: '/buttons', label: 'Buttons' },
   { to: '/cards', label: 'Cards' },
+  { to: '/code', label: 'Code' },
 ];
 </script>
 

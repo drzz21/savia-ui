@@ -6,6 +6,8 @@ import SCard from '../components/SCard.vue';
   <div class="space-y-12">
     <h2 class="font-display text-3xl font-extrabold tracking-tight text-mist">Theme</h2>
 
+    <h3 class="font-display text-2xl font-bold tracking-tight text-mist">Default values</h3>
+
     <!-- Color palette -->
     <div class="space-y-4">
       <h3 class="text-sm font-semibold text-leaf-muted uppercase tracking-wide">Color palette</h3>
@@ -63,7 +65,7 @@ import SCard from '../components/SCard.vue';
     </div>
 
     <!-- Radius and spacing -->
-    <div class="space-y-4">
+    <!-- <div class="space-y-4">
       <h3 class="text-sm font-semibold text-leaf-muted uppercase tracking-wide">Radius & spacing</h3>
       <SCard>
         <div class="flex gap-6 items-end">
@@ -77,6 +79,6 @@ import SCard from '../components/SCard.vue';
           </div>
         </div>
       </SCard>
-    </div>
+    </div> -->
   </div>
 </template>

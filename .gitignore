@@ -25,3 +25,8 @@ dist-ssr
 
 *storybook.log
 storybook-static
+
+# graft's local graph cache — regenerable, not committed (run `graft build`).
+graft/
+.ignore
+.codex

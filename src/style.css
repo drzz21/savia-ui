@@ -1,1 +1,22 @@
 @import "tailwindcss";
+
+@theme {
+  --color-garden-night: #152B2C;
+  --color-garden-deep: #0C1D20;
+  --color-rain-mint: #B7E1CB;
+  --color-rain-blue: #79B5D9;
+  --color-bloom-coral: #FF836C;
+  --color-mist: #EAF4EE;
+  --color-leaf-muted: #91AAA0;
+  --color-error: #FFB5A7;
+
+  --font-display: "Figtree", Arial, sans-serif;
+  --font-body: "Nunito Sans", Arial, sans-serif;
+
+  --radius-field: 14px;
+  --radius-panel: 22px;
+
+  --spacing-compact: 8px;
+  --spacing-base: 16px;
+  --spacing-spacious: 32px;
+}

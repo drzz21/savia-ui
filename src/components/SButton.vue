@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { cva } from 'class-variance-authority';
+import { computed } from 'vue';
 
 const {
 	label,
@@ -9,6 +10,7 @@ const {
 	type = 'default',
 	size = 'medium',
 	fullWidth = false,
+	shadow = false,
 	iconLeft,
 	iconRight,
 } = defineProps<{
@@ -19,6 +21,8 @@ const {
 	loading?: boolean;
 	size?: 'small' | 'medium' | 'large';
 	fullWidth?: boolean;
+	/** Agrega una sombra coloreada debajo del botón, usando el color de la variante */
+	shadow?: boolean;
 	/** Nombre del símbolo SVG del sprite público (icons.svg) */
 	iconLeft?: string;
 	iconRight?: string;
@@ -34,7 +38,7 @@ function handleClick(event: MouseEvent) {
 }
 
 const button = cva(
-	'inline-flex items-center justify-center gap-2 font-bold rounded transition-colors focus-visible:outline-2 focus-visible:outline-offset-2',
+	'inline-flex items-center justify-center gap-2 font-bold font-body rounded-[var(--radius-field)] transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2',
 	{
 		variants: {
 			variant: {
@@ -50,9 +54,9 @@ const button = cva(
 				text: 'bg-transparent',
 			},
 			size: {
-				small:  'text-sm py-1 px-2 [&_svg]:size-4',
-				medium: 'text-base py-2 px-4 [&_svg]:size-5',
-				large:  'text-lg py-3 px-6 [&_svg]:size-6',
+				small:  'text-sm py-1.5 px-3 [&_svg]:size-4',
+				medium: 'text-base py-2.5 px-5 [&_svg]:size-5',
+				large:  'text-lg py-3.5 px-7 [&_svg]:size-6',
 			},
 			fullWidth: {
 				true: 'w-full',
@@ -60,26 +64,26 @@ const button = cva(
 			},
 		},
 		compoundVariants: [
-			// ── primary ──────────────────────────────────────────────────
-			{ variant: 'primary',   type: 'default',  class: 'bg-blue-600   hover:bg-blue-700   active:bg-blue-500   text-white focus-visible:outline-blue-600' },
-			{ variant: 'primary',   type: 'outlined', class: 'border-blue-600   text-blue-600   hover:bg-blue-50   active:bg-blue-100' },
-			{ variant: 'primary',   type: 'text',     class: 'text-blue-600   hover:bg-blue-50   active:bg-blue-100' },
-			// ── secondary ────────────────────────────────────────────────
-			{ variant: 'secondary', type: 'default',  class: 'bg-green-600  hover:bg-green-700  active:bg-green-500  text-white focus-visible:outline-green-600' },
-			{ variant: 'secondary', type: 'outlined', class: 'border-green-600  text-green-600  hover:bg-green-50  active:bg-green-100' },
-			{ variant: 'secondary', type: 'text',     class: 'text-green-600  hover:bg-green-50  active:bg-green-100' },
-			// ── tertiary ─────────────────────────────────────────────────
-			{ variant: 'tertiary',  type: 'default',  class: 'bg-purple-600 hover:bg-purple-700 active:bg-purple-500 text-white focus-visible:outline-purple-600' },
-			{ variant: 'tertiary',  type: 'outlined', class: 'border-purple-600 text-purple-600 hover:bg-purple-50 active:bg-purple-100' },
-			{ variant: 'tertiary',  type: 'text',     class: 'text-purple-600 hover:bg-purple-50 active:bg-purple-100' },
-			// ── danger ───────────────────────────────────────────────────
-			{ variant: 'danger',    type: 'default',  class: 'bg-red-600    hover:bg-red-700    active:bg-red-500    text-white focus-visible:outline-red-600' },
-			{ variant: 'danger',    type: 'outlined', class: 'border-red-600    text-red-600    hover:bg-red-50    active:bg-red-100' },
-			{ variant: 'danger',    type: 'text',     class: 'text-red-600    hover:bg-red-50    active:bg-red-100' },
-			// ── ghost ────────────────────────────────────────────────────
-			{ variant: 'ghost',     type: 'default',  class: 'bg-transparent text-gray-700 hover:bg-gray-100 active:bg-gray-200 focus-visible:outline-gray-400' },
-			{ variant: 'ghost',     type: 'outlined', class: 'border-gray-400  text-gray-700 hover:bg-gray-100 active:bg-gray-200' },
-			{ variant: 'ghost',     type: 'text',     class: 'text-gray-600   hover:bg-gray-100 active:bg-gray-200' },
+			// ── primary (rain-mint bg, garden-deep text) ─────────────────
+			{ variant: 'primary',   type: 'default',  class: 'bg-rain-mint text-garden-deep hover:brightness-110 active:translate-y-0.5 active:brightness-95 focus-visible:outline-rain-mint' },
+			{ variant: 'primary',   type: 'outlined', class: 'border-rain-mint text-rain-mint hover:bg-rain-mint/10 active:bg-rain-mint/20' },
+			{ variant: 'primary',   type: 'text',     class: 'text-rain-mint hover:bg-rain-mint/10 active:bg-rain-mint/20' },
+			// ── secondary (rain-blue bg, garden-deep text) ───────────────
+			{ variant: 'secondary', type: 'default',  class: 'bg-rain-blue text-garden-deep hover:brightness-110 active:translate-y-0.5 active:brightness-95 focus-visible:outline-rain-blue' },
+			{ variant: 'secondary', type: 'outlined', class: 'border-rain-blue text-rain-blue hover:bg-rain-blue/10 active:bg-rain-blue/20' },
+			{ variant: 'secondary', type: 'text',     class: 'text-rain-blue hover:bg-rain-blue/10 active:bg-rain-blue/20' },
+			// ── tertiary (leaf-muted bg, garden-deep text) ───────────────
+			{ variant: 'tertiary',  type: 'default',  class: 'bg-leaf-muted text-garden-deep hover:brightness-110 active:translate-y-0.5 active:brightness-95 focus-visible:outline-leaf-muted' },
+			{ variant: 'tertiary',  type: 'outlined', class: 'border-leaf-muted text-leaf-muted hover:bg-leaf-muted/10 active:bg-leaf-muted/20' },
+			{ variant: 'tertiary',  type: 'text',     class: 'text-leaf-muted hover:bg-leaf-muted/10 active:bg-leaf-muted/20' },
+			// ── danger (bloom-coral bg, garden-deep text) ────────────────
+			{ variant: 'danger',    type: 'default',  class: 'bg-bloom-coral text-garden-deep hover:brightness-110 active:translate-y-0.5 active:brightness-95 focus-visible:outline-bloom-coral' },
+			{ variant: 'danger',    type: 'outlined', class: 'border-bloom-coral text-bloom-coral hover:bg-bloom-coral/10 active:bg-bloom-coral/20' },
+			{ variant: 'danger',    type: 'text',     class: 'text-bloom-coral hover:bg-bloom-coral/10 active:bg-bloom-coral/20' },
+			// ── ghost (transparent, mist text on dark surfaces) ──────────
+			{ variant: 'ghost',     type: 'default',  class: 'bg-transparent text-mist hover:bg-mist/10 active:bg-mist/15 focus-visible:outline-leaf-muted' },
+			{ variant: 'ghost',     type: 'outlined', class: 'border-leaf-muted text-mist hover:bg-mist/10 active:bg-mist/15' },
+			{ variant: 'ghost',     type: 'text',     class: 'text-leaf-muted hover:bg-mist/10 active:bg-mist/15' },
 		],
 		defaultVariants: {
 			variant: 'primary',
@@ -89,12 +93,26 @@ const button = cva(
 		},
 	},
 );
+
+/** Shadow classes mapped by variant color */
+const shadowClass = computed(() => {
+	if (!shadow) return '';
+	const map: Record<string, string> = {
+		primary: 'shadow-[0_4px_20px_rgba(183,225,203,0.4)] hover:shadow-[0_6px_28px_rgba(183,225,203,0.5)]',
+		secondary: 'shadow-[0_4px_20px_rgba(121,181,217,0.4)] hover:shadow-[0_6px_28px_rgba(121,181,217,0.5)]',
+		tertiary: 'shadow-[0_4px_20px_rgba(145,170,160,0.35)] hover:shadow-[0_6px_28px_rgba(145,170,160,0.45)]',
+		danger: 'shadow-[0_4px_20px_rgba(255,131,108,0.4)] hover:shadow-[0_6px_28px_rgba(255,131,108,0.5)]',
+		ghost: '',
+	};
+	return map[variant] ?? '';
+});
 </script>
 
 <template>
 	<button
 		:class="[
 			button({ variant, type, size, fullWidth }),
+			shadowClass,
 			disabled || loading ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer',
 		]"
 		:disabled="disabled || loading"

@@ -8,12 +8,12 @@ defineProps<{
 <template>
   <div
     :class="[
-      'rounded-lg border border-gray-200 bg-white shadow-sm',
+      'rounded-[var(--radius-panel)] border border-leaf-muted/20 bg-garden-night shadow-[0_4px_24px_rgba(12,29,32,0.4)]',
       {
         'p-0': padding === 'none',
-        'p-3': padding === 'small',
-        'p-5': !padding || padding === 'medium',
-        'p-8': padding === 'large',
+        'p-4': padding === 'small',
+        'p-6': !padding || padding === 'medium',
+        'p-10': padding === 'large',
       },
     ]"
   >

@@ -8,10 +8,10 @@ import StackedPattern from '../patterns/cards/StackedPattern.vue';
   <div class="space-y-16">
     <h2 class="font-display text-3xl font-extrabold tracking-tight text-mist">Cards</h2>
 
-    <PaddingPattern />
+    <div id="padding"><PaddingPattern /></div>
     <hr class="border-leaf-muted/30 my-4" />
-    <CompositionPattern />
+    <div id="composition"><CompositionPattern /></div>
     <hr class="border-leaf-muted/30 my-4" />
-    <StackedPattern />
+    <div id="stacked"><StackedPattern /></div>
   </div>
 </template>

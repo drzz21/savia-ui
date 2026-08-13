@@ -8,10 +8,10 @@ import CopyPattern from '../patterns/code/CopyPattern.vue';
   <div class="space-y-16">
     <h2 class="font-display text-3xl font-extrabold tracking-tight text-mist">Code</h2>
 
-    <BasicPattern />
+    <div id="basic"><BasicPattern /></div>
     <hr class="border-leaf-muted/30 my-4" />
-    <LanguagePattern />
+    <div id="language"><LanguagePattern /></div>
     <hr class="border-leaf-muted/30 my-4" />
-    <CopyPattern />
+    <div id="copy"><CopyPattern /></div>
   </div>
 </template>

@@ -20,3 +20,12 @@
   --spacing-base: 16px;
   --spacing-spacious: 32px;
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Compensar el header fijo al hacer scroll a anchors */
+[id] {
+  scroll-margin-top: 6rem;
+}

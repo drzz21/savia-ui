@@ -6,24 +6,27 @@ import IconsPattern from '../patterns/buttons/IconsPattern.vue';
 import ShadowPattern from '../patterns/buttons/ShadowPattern.vue';
 import StatesPattern from '../patterns/buttons/StatesPattern.vue';
 import FullWidthPattern from '../patterns/buttons/FullWidthPattern.vue';
+import EventsPattern from '../patterns/buttons/EventsPattern.vue';
 </script>
 
 <template>
   <div class="space-y-16">
     <h2 class="font-display text-3xl font-extrabold tracking-tight text-mist">Buttons</h2>
 
-    <VariantsPattern />
+    <div id="variants"><VariantsPattern /></div>
     <hr class="border-leaf-muted/30 my-4" />
-    <TypesPattern />
+    <div id="types"><TypesPattern /></div>
     <hr class="border-leaf-muted/30 my-4" />
-    <SizesPattern />
+    <div id="sizes"><SizesPattern /></div>
     <hr class="border-leaf-muted/30 my-4" />
-    <IconsPattern />
+    <div id="icons"><IconsPattern /></div>
     <hr class="border-leaf-muted/30 my-4" />
-    <ShadowPattern />
+    <div id="shadow"><ShadowPattern /></div>
     <hr class="border-leaf-muted/30 my-4" />
-    <StatesPattern />
+    <div id="states"><StatesPattern /></div>
     <hr class="border-leaf-muted/30 my-4" />
-    <FullWidthPattern />
+    <div id="full-width"><FullWidthPattern /></div>
+    <hr class="border-leaf-muted/30 my-4" />
+    <div id="events"><EventsPattern /></div>
   </div>
 </template>

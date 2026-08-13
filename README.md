@@ -2,7 +2,7 @@
 
 A Vue 3 component library built on a dark, atmospheric color palette. Designed for interfaces where clarity matters more than decoration.
 
-> **Full documentation:** [https://placeholder-savia-ui-docs.dev](https://placeholder-savia-ui-docs.dev)
+> **Full documentation:** [https://drzz21.github.io/savia-ui/](https://drzz21.github.io/savia-ui/theme)
 >
 > Visit the official site for all patterns, variants, detailed props, and interactive examples.
 

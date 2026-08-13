@@ -30,7 +30,9 @@
     "dev": "vite",
     "build": "vue-tsc -b && vite build",
     "build:lib": "vite build",
+    "build:pages": "vite build --config vite.config.pages.ts",
     "preview": "vite preview",
+    "preview:pages": "vite preview --config vite.config.pages.ts",
     "prepublishOnly": "pnpm run build:lib",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"

@@ -29,13 +29,13 @@ function handleClick(index: number) {
 </script>
 
 <template>
-	<div :class="['flex', vertical ? 'flex-col gap-0' : 'flex-row items-center gap-0']">
+	<div :class="['flex', vertical ? 'flex-col gap-0' : 'flex-col sm:flex-row sm:items-center gap-0']">
 		<template v-for="(step, index) in steps" :key="index">
 			<!-- Step -->
 			<div
 				:class="[
 					'flex items-center gap-2 cursor-pointer group',
-					vertical ? 'py-2' : '',
+					vertical ? 'py-2' : 'py-1 sm:py-0',
 				]"
 				@click="handleClick(index)"
 			>
@@ -89,7 +89,7 @@ function handleClick(index: number) {
 					'transition-colors duration-200',
 					vertical
 						? 'ml-4 w-px h-6 my-0'
-						: 'flex-1 h-px min-w-4 mx-2',
+						: 'ml-4 w-px h-4 sm:ml-0 sm:w-auto sm:h-px sm:flex-1 sm:min-w-4 sm:mx-2',
 					index < current
 						? 'bg-rain-mint'
 						: 'bg-leaf-muted/20',

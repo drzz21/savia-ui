@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { cva } from 'class-variance-authority';
 
 const {
 	size = 'medium',

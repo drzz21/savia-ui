@@ -11,6 +11,45 @@ const baseUrl = import.meta.env.BASE_URL;
 const nav = [
   { to: '/install', label: 'Install', children: [] },
   { to: '/theme', label: 'Theme', children: [] },
+  { to: '/icons', label: 'Icons', children: [] },
+    {
+    to: '/layout',
+    label: 'Layout',
+    children: [
+      { hash: 'divider', label: 'Divider' },
+      // { hash: 'flex', label: 'Flex' },
+      // { hash: 'grid', label: 'Grid' },
+      { hash: 'space', label: 'Space' },
+      { hash: 'masonry', label: 'Masonry' },
+    ],
+  },
+  {
+    to: '/input-text',
+    label: 'Input Text',
+    children: [
+      { hash: 'basic', label: 'Basic' },
+      { hash: 'sizes', label: 'Sizes' },
+      { hash: 'icons', label: 'Icons' },
+      { hash: 'states', label: 'States' },
+      { hash: 'clearable', label: 'Clearable' },
+    ],
+  },
+  {
+    to: '/checkbox',
+    label: 'Checkbox',
+    children: [
+      { hash: 'basic', label: 'Basic' },
+      { hash: 'sizes', label: 'Sizes' },
+    ],
+  },
+  {
+    to: '/radio',
+    label: 'Radio',
+    children: [
+      { hash: 'basic', label: 'Basic' },
+      { hash: 'sizes', label: 'Sizes' },
+    ],
+  },
   {
     to: '/buttons',
     label: 'Buttons',
@@ -43,6 +82,84 @@ const nav = [
       { hash: 'copy', label: 'Copy' },
     ],
   },
+  {
+    to: '/badges',
+    label: 'Badges',
+    children: [
+      { hash: 'variants', label: 'Variants' },
+      { hash: 'types', label: 'Types' },
+      { hash: 'sizes', label: 'Sizes' },
+      { hash: 'pill', label: 'Pill' },
+      { hash: 'dot', label: 'Dot' },
+      { hash: 'composition', label: 'Composition' },
+    ],
+  },
+  {
+    to: '/accordion',
+    label: 'Accordion',
+    children: [
+      { hash: 'basic', label: 'Basic' },
+      { hash: 'multiple', label: 'Multiple' },
+      { hash: 'disabled', label: 'Disabled' },
+    ],
+  },
+  {
+    to: '/file-upload',
+    label: 'File Upload',
+    children: [
+      { hash: 'basic', label: 'Basic' },
+      { hash: 'multiple', label: 'Multiple' },
+      { hash: 'accept', label: 'Accept & Max size' },
+      { hash: 'disabled', label: 'Disabled' },
+    ],
+  },
+  {
+    to: '/stepper',
+    label: 'Stepper',
+    children: [
+      { hash: 'basic', label: 'Basic' },
+      { hash: 'vertical', label: 'Vertical' },
+      { hash: 'clickable', label: 'Clickable' },
+    ],
+  },
+  {
+    to: '/modal',
+    label: 'Modal',
+    children: [
+      { hash: 'basic', label: 'Basic' },
+      { hash: 'sizes', label: 'Sizes' },
+      { hash: 'persistent', label: 'Persistent' },
+      { hash: 'slots', label: 'Custom slots' },
+    ],
+  },
+  {
+    to: '/tabs',
+    label: 'Tabs',
+    children: [
+      { hash: 'basic', label: 'Basic' },
+      { hash: 'variants', label: 'Variants' },
+      { hash: 'disabled', label: 'Disabled' },
+    ],
+  },
+  {
+    to: '/loader',
+    label: 'Loader',
+    children: [
+      { hash: 'basic', label: 'Basic' },
+      { hash: 'sizes', label: 'Sizes' },
+      { hash: 'variants', label: 'Variants' },
+    ],
+  },
+  {
+    to: '/breadcrumbs',
+    label: 'Breadcrumbs',
+    children: [
+      { hash: 'basic', label: 'Basic' },
+      { hash: 'separators', label: 'Separators' },
+      { hash: 'events', label: 'Events' },
+    ],
+  },
+
 ];
 
 // Track qué sección del menú está expandida
@@ -217,7 +334,7 @@ function handleDonateClick() {
     <!-- Sidebar / Drawer -->
     <aside
       :class="[
-        'fixed top-0 left-0 z-20 h-screen w-64 border-r border-leaf-muted/15 bg-garden-night flex flex-col px-3 pt-24 pb-8 overflow-y-auto transition-transform duration-300 ease-out',
+        'fixed top-0 left-0 z-20 h-screen w-64 border-r border-leaf-muted/15 bg-garden-night flex flex-col px-3 pt-24 pb-24 overflow-y-auto transition-transform duration-300 ease-out',
         'lg:translate-x-0 lg:w-52 lg:z-10',
         menuOpen ? 'translate-x-0' : '-translate-x-full',
       ]"
@@ -279,47 +396,47 @@ function handleDonateClick() {
 
       <div class="flex-1"></div>
 
-      <!-- Support section -->
-      <div class="px-2 pb-2 pt-4 border-t border-leaf-muted/10 relative">
-        <!-- Corazones animados -->
-        <div
-          v-for="heart in hearts"
-          :key="heart.id"
-          class="absolute pointer-events-none heart-float"
-          :style="{
-            left: `calc(50% + ${heart.x}px)`,
-            bottom: '40px',
-            fontSize: `${heart.size}px`,
-            animationDelay: `${heart.delay}s`,
-          }"
-        >
-          <svg :width="heart.size" :height="heart.size" viewBox="0 0 24 24" fill="currentColor" class="text-bloom-coral">
-            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-          </svg>
-        </div>
+    </aside>
 
-        <button
-          :class="[
-            'flex items-center justify-center gap-2 w-full px-3 py-2.5 rounded-[var(--radius-field)] transition-colors text-sm font-medium group cursor-pointer',
-            isActive('/support')
-              ? 'bg-bloom-coral/20 text-bloom-coral'
-              : 'bg-bloom-coral/10 hover:bg-bloom-coral/20 text-bloom-coral',
-          ]"
-          @click="handleDonateClick"
-        >
-          <svg
-            class="size-4 transition-transform group-hover:scale-110"
-            viewBox="0 0 24 24"
-            fill="currentColor"
-          >
-            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-          </svg>
-          <span>Support</span>
-        </button>
+    <!-- Support button (fixed bottom of sidebar) -->
+    <div class="fixed bottom-0 left-0 z-30 w-52 px-3 pb-4 pt-3 hidden lg:block bg-garden-night border-r border-leaf-muted/15">
+      <p class="text-[10px] text-leaf-muted/50 mb-2">v0.0.5</p>
+      <!-- Corazones animados -->
+      <div
+        v-for="heart in hearts"
+        :key="heart.id"
+        class="absolute pointer-events-none heart-float"
+        :style="{
+          left: `calc(50% + ${heart.x}px)`,
+          bottom: '40px',
+          fontSize: `${heart.size}px`,
+          animationDelay: `${heart.delay}s`,
+        }"
+      >
+        <svg :width="heart.size" :height="heart.size" viewBox="0 0 24 24" fill="currentColor" class="text-bloom-coral">
+          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+        </svg>
       </div>
 
-      <p class="text-[10px] text-leaf-muted/50 px-2 pt-2">v0.0.4</p>
-    </aside>
+      <button
+        :class="[
+          'flex items-center justify-center gap-2 w-full px-3 py-2.5 rounded-[var(--radius-field)] transition-colors text-sm font-medium group cursor-pointer',
+          isActive('/support')
+            ? 'bg-bloom-coral/20 text-bloom-coral'
+            : 'bg-bloom-coral/10 hover:bg-bloom-coral/20 text-bloom-coral',
+        ]"
+        @click="handleDonateClick"
+      >
+        <svg
+          class="size-4 transition-transform group-hover:scale-110"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+        >
+          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+        </svg>
+        <span>Support</span>
+      </button>
+    </div>
 
     <!-- Main -->
     <main class="lg:ml-52">

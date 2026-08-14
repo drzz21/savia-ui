@@ -24,6 +24,11 @@ const router = createRouter({
       component: () => import('./pages/ThemePage.vue'),
     },
     {
+      path: '/icons',
+      name: 'icons',
+      component: () => import('./pages/IconsPage.vue'),
+    },
+    {
       path: '/buttons',
       name: 'buttons',
       component: () => import('./pages/ButtonsPage.vue'),

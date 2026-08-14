@@ -27,10 +27,13 @@ const steps = ['Account', 'Profile', 'Review', 'Complete'];
     <div>
       <h3 class="text-lg font-display font-extrabold text-mist">Basic</h3>
       <p class="text-sm text-leaf-muted mt-1">A horizontal stepper that shows progress through a sequence. Completed steps show a checkmark, the active step is highlighted, and pending steps are dimmed.</p>
+      <p class="text-sm text-leaf-muted mt-2">On mobile, steppers switch to vertical layout by default. To keep them horizontal, wrap in a container with <code class="text-rain-mint/80 text-xs bg-rain-mint/10 px-1.5 py-0.5 rounded">overflow-x-auto</code>.</p>
     </div>
     <SCard>
       <div class="space-y-6">
-        <SStepper :steps="steps" :current="currentStep" />
+        <div class="overflow-x-auto">
+          <SStepper :steps="steps" :current="currentStep" />
+        </div>
         <div class="flex gap-3">
           <SButton label="Back" variant="ghost" size="small" :disabled="currentStep === 0" @click="currentStep--" />
           <SButton label="Next" variant="primary" size="small" :disabled="currentStep === steps.length - 1" @click="currentStep++" />

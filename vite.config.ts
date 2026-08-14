@@ -25,6 +25,11 @@ export default defineConfig({
     cssInjectedByJsPlugin(),
   ],
 
+  server: {
+    //this is for development, to test this page on a cloudflare tunnel
+    allowedHosts: ['.trycloudflare.com'],
+  },
+
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),

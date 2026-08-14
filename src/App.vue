@@ -9,45 +9,37 @@ const baseUrl = import.meta.env.BASE_URL;
 
 // Secciones colapsables con sus patterns
 const nav = [
-  { to: '/install', label: 'Install', children: [] },
-  { to: '/theme', label: 'Theme', children: [] },
-  { to: '/icons', label: 'Icons', children: [] },
-    {
-    to: '/layout',
-    label: 'Layout',
+  { to: '/install', label: 'Install', children: [], dividerAfter: true },
+  { to: '/theme', label: 'Theme', children: [], dividerAfter: false },
+  { to: '/icons', label: 'Icons', children: [], dividerAfter: true },
+  {
+    to: '/accordion',
+    label: 'Accordion',
     children: [
-      { hash: 'divider', label: 'Divider' },
-      // { hash: 'flex', label: 'Flex' },
-      // { hash: 'grid', label: 'Grid' },
-      { hash: 'space', label: 'Space' },
-      { hash: 'masonry', label: 'Masonry' },
+      { hash: 'basic', label: 'Basic' },
+      { hash: 'multiple', label: 'Multiple' },
+      { hash: 'disabled', label: 'Disabled' },
     ],
   },
   {
-    to: '/input-text',
-    label: 'Input Text',
+    to: '/badges',
+    label: 'Badges',
     children: [
-      { hash: 'basic', label: 'Basic' },
+      { hash: 'variants', label: 'Variants' },
+      { hash: 'types', label: 'Types' },
       { hash: 'sizes', label: 'Sizes' },
-      { hash: 'icons', label: 'Icons' },
-      { hash: 'states', label: 'States' },
-      { hash: 'clearable', label: 'Clearable' },
+      { hash: 'pill', label: 'Pill' },
+      { hash: 'dot', label: 'Dot' },
+      { hash: 'composition', label: 'Composition' },
     ],
   },
   {
-    to: '/checkbox',
-    label: 'Checkbox',
+    to: '/breadcrumbs',
+    label: 'Breadcrumbs',
     children: [
       { hash: 'basic', label: 'Basic' },
-      { hash: 'sizes', label: 'Sizes' },
-    ],
-  },
-  {
-    to: '/radio',
-    label: 'Radio',
-    children: [
-      { hash: 'basic', label: 'Basic' },
-      { hash: 'sizes', label: 'Sizes' },
+      { hash: 'separators', label: 'Separators' },
+      { hash: 'events', label: 'Events' },
     ],
   },
   {
@@ -74,33 +66,20 @@ const nav = [
     ],
   },
   {
+    to: '/checkbox',
+    label: 'Checkbox',
+    children: [
+      { hash: 'basic', label: 'Basic' },
+      { hash: 'sizes', label: 'Sizes' },
+    ],
+  },
+  {
     to: '/code',
     label: 'Code',
     children: [
       { hash: 'basic', label: 'Basic' },
       { hash: 'language', label: 'Language' },
       { hash: 'copy', label: 'Copy' },
-    ],
-  },
-  {
-    to: '/badges',
-    label: 'Badges',
-    children: [
-      { hash: 'variants', label: 'Variants' },
-      { hash: 'types', label: 'Types' },
-      { hash: 'sizes', label: 'Sizes' },
-      { hash: 'pill', label: 'Pill' },
-      { hash: 'dot', label: 'Dot' },
-      { hash: 'composition', label: 'Composition' },
-    ],
-  },
-  {
-    to: '/accordion',
-    label: 'Accordion',
-    children: [
-      { hash: 'basic', label: 'Basic' },
-      { hash: 'multiple', label: 'Multiple' },
-      { hash: 'disabled', label: 'Disabled' },
     ],
   },
   {
@@ -114,12 +93,32 @@ const nav = [
     ],
   },
   {
-    to: '/stepper',
-    label: 'Stepper',
+    to: '/input-text',
+    label: 'Input Text',
     children: [
       { hash: 'basic', label: 'Basic' },
-      { hash: 'vertical', label: 'Vertical' },
-      { hash: 'clickable', label: 'Clickable' },
+      { hash: 'sizes', label: 'Sizes' },
+      { hash: 'icons', label: 'Icons' },
+      { hash: 'states', label: 'States' },
+      { hash: 'clearable', label: 'Clearable' },
+    ],
+  },
+  {
+    to: '/layout',
+    label: 'Layout',
+    children: [
+      { hash: 'divider', label: 'Divider' },
+      { hash: 'space', label: 'Space' },
+      { hash: 'masonry', label: 'Masonry' },
+    ],
+  },
+  {
+    to: '/loader',
+    label: 'Loader',
+    children: [
+      { hash: 'basic', label: 'Basic' },
+      { hash: 'sizes', label: 'Sizes' },
+      { hash: 'variants', label: 'Variants' },
     ],
   },
   {
@@ -133,6 +132,23 @@ const nav = [
     ],
   },
   {
+    to: '/radio',
+    label: 'Radio',
+    children: [
+      { hash: 'basic', label: 'Basic' },
+      { hash: 'sizes', label: 'Sizes' },
+    ],
+  },
+  {
+    to: '/stepper',
+    label: 'Stepper',
+    children: [
+      { hash: 'basic', label: 'Basic' },
+      { hash: 'vertical', label: 'Vertical' },
+      { hash: 'clickable', label: 'Clickable' },
+    ],
+  },
+  {
     to: '/tabs',
     label: 'Tabs',
     children: [
@@ -141,25 +157,6 @@ const nav = [
       { hash: 'disabled', label: 'Disabled' },
     ],
   },
-  {
-    to: '/loader',
-    label: 'Loader',
-    children: [
-      { hash: 'basic', label: 'Basic' },
-      { hash: 'sizes', label: 'Sizes' },
-      { hash: 'variants', label: 'Variants' },
-    ],
-  },
-  {
-    to: '/breadcrumbs',
-    label: 'Breadcrumbs',
-    children: [
-      { hash: 'basic', label: 'Basic' },
-      { hash: 'separators', label: 'Separators' },
-      { hash: 'events', label: 'Events' },
-    ],
-  },
-
 ];
 
 // Track qué sección del menú está expandida
@@ -391,6 +388,7 @@ function handleDonateClick() {
               </button>
             </div>
           </Transition>
+          <hr v-if="item.dividerAfter" class="border-leaf-muted/15 my-2" />
         </div>
       </nav>
 
@@ -419,6 +417,7 @@ function handleDonateClick() {
       </div>
 
       <button
+      v-if="false"
         :class="[
           'flex items-center justify-center gap-2 w-full px-3 py-2.5 rounded-[var(--radius-field)] transition-colors text-sm font-medium group cursor-pointer',
           isActive('/support')

@@ -19,6 +19,8 @@ export default defineConfig({
       insertTypesEntry: true,
       outDirs: 'dist',
       tsconfigPath: './tsconfig.app.json',
+      include: ['src/components/**/*.vue', 'src/index.ts'],
+      exclude: ['src/pages/**', 'src/patterns/**', 'src/stories/**', 'src/App.vue', 'src/main.ts', 'src/router.ts'],
     }),
     cssInjectedByJsPlugin(),
   ],

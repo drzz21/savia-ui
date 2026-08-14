@@ -22,10 +22,36 @@
 }
 
 html {
+  color-scheme: dark;
   scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(145, 170, 160, 0.25) transparent;
+}
+
+body {
+  background-color: var(--color-garden-deep);
 }
 
 /* Compensar el header fijo al hacer scroll a anchors */
 [id] {
   scroll-margin-top: 6rem;
+}
+
+/* Custom scrollbar — webkit */
+::-webkit-scrollbar {
+  width: 6px !important;
+  height: 6px !important;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(145, 170, 160, 0.25) !important;
+  border-radius: 3px !important;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(145, 170, 160, 0.4) !important;
 }

@@ -331,7 +331,7 @@ function handleDonateClick() {
     <!-- Sidebar / Drawer -->
     <aside
       :class="[
-        'fixed top-0 left-0 z-20 h-screen w-64 border-r border-leaf-muted/15 bg-garden-night flex flex-col px-3 pt-24 pb-24 overflow-y-auto transition-transform duration-300 ease-out',
+        'fixed top-0 left-0 z-20 h-screen w-64 border-r border-leaf-muted/15 bg-garden-night flex flex-col px-3 pt-24 pb-32 overflow-y-auto transition-transform duration-300 ease-out',
         'lg:translate-x-0 lg:w-52 lg:z-10',
         menuOpen ? 'translate-x-0' : '-translate-x-full',
       ]"

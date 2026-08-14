@@ -9,7 +9,39 @@ const baseUrl = import.meta.env.BASE_URL;
 
 // Secciones colapsables con sus patterns
 const nav = [
-  { to: '/theme', label: 'Theme', children: [] },
+  { to: '/install', label: 'Install', children: [], dividerAfter: true },
+  { to: '/theme', label: 'Theme', children: [], dividerAfter: false },
+  { to: '/icons', label: 'Icons', children: [], dividerAfter: true },
+  {
+    to: '/accordion',
+    label: 'Accordion',
+    children: [
+      { hash: 'basic', label: 'Basic' },
+      { hash: 'multiple', label: 'Multiple' },
+      { hash: 'disabled', label: 'Disabled' },
+    ],
+  },
+  {
+    to: '/badges',
+    label: 'Badges',
+    children: [
+      { hash: 'variants', label: 'Variants' },
+      { hash: 'types', label: 'Types' },
+      { hash: 'sizes', label: 'Sizes' },
+      { hash: 'pill', label: 'Pill' },
+      { hash: 'dot', label: 'Dot' },
+      { hash: 'composition', label: 'Composition' },
+    ],
+  },
+  {
+    to: '/breadcrumbs',
+    label: 'Breadcrumbs',
+    children: [
+      { hash: 'basic', label: 'Basic' },
+      { hash: 'separators', label: 'Separators' },
+      { hash: 'events', label: 'Events' },
+    ],
+  },
   {
     to: '/buttons',
     label: 'Buttons',
@@ -34,12 +66,95 @@ const nav = [
     ],
   },
   {
+    to: '/checkbox',
+    label: 'Checkbox',
+    children: [
+      { hash: 'basic', label: 'Basic' },
+      { hash: 'sizes', label: 'Sizes' },
+    ],
+  },
+  {
     to: '/code',
     label: 'Code',
     children: [
       { hash: 'basic', label: 'Basic' },
       { hash: 'language', label: 'Language' },
       { hash: 'copy', label: 'Copy' },
+    ],
+  },
+  {
+    to: '/file-upload',
+    label: 'File Upload',
+    children: [
+      { hash: 'basic', label: 'Basic' },
+      { hash: 'multiple', label: 'Multiple' },
+      { hash: 'accept', label: 'Accept & Max size' },
+      { hash: 'disabled', label: 'Disabled' },
+    ],
+  },
+  {
+    to: '/input-text',
+    label: 'Input Text',
+    children: [
+      { hash: 'basic', label: 'Basic' },
+      { hash: 'sizes', label: 'Sizes' },
+      { hash: 'icons', label: 'Icons' },
+      { hash: 'states', label: 'States' },
+      { hash: 'clearable', label: 'Clearable' },
+    ],
+  },
+  {
+    to: '/layout',
+    label: 'Layout',
+    children: [
+      { hash: 'divider', label: 'Divider' },
+      { hash: 'space', label: 'Space' },
+      { hash: 'masonry', label: 'Masonry' },
+    ],
+  },
+  {
+    to: '/loader',
+    label: 'Loader',
+    children: [
+      { hash: 'basic', label: 'Basic' },
+      { hash: 'sizes', label: 'Sizes' },
+      { hash: 'variants', label: 'Variants' },
+    ],
+  },
+  {
+    to: '/modal',
+    label: 'Modal',
+    children: [
+      { hash: 'basic', label: 'Basic' },
+      { hash: 'sizes', label: 'Sizes' },
+      { hash: 'persistent', label: 'Persistent' },
+      { hash: 'slots', label: 'Custom slots' },
+    ],
+  },
+  {
+    to: '/radio',
+    label: 'Radio',
+    children: [
+      { hash: 'basic', label: 'Basic' },
+      { hash: 'sizes', label: 'Sizes' },
+    ],
+  },
+  {
+    to: '/stepper',
+    label: 'Stepper',
+    children: [
+      { hash: 'basic', label: 'Basic' },
+      { hash: 'vertical', label: 'Vertical' },
+      { hash: 'clickable', label: 'Clickable' },
+    ],
+  },
+  {
+    to: '/tabs',
+    label: 'Tabs',
+    children: [
+      { hash: 'basic', label: 'Basic' },
+      { hash: 'variants', label: 'Variants' },
+      { hash: 'disabled', label: 'Disabled' },
     ],
   },
 ];
@@ -110,6 +225,30 @@ function isActive(to: string) {
 function isChildActive(parentTo: string, hash: string) {
   return route.path === parentTo && route.hash === `#${hash}`;
 }
+
+// Animación de corazones al hacer click en Donate
+const hearts = ref<{ id: number; x: number; y: number; size: number; delay: number }[]>([]);
+let heartId = 0;
+
+function spawnHearts() {
+  const newHearts = Array.from({ length: 8 }, () => ({
+    id: heartId++,
+    x: Math.random() * 160 - 80,
+    y: -(Math.random() * 80 + 40),
+    size: Math.random() * 10 + 10,
+    delay: Math.random() * 0.3,
+  }));
+  hearts.value.push(...newHearts);
+  setTimeout(() => {
+    hearts.value = hearts.value.filter((h) => !newHearts.includes(h));
+  }, 1200);
+}
+
+function handleDonateClick() {
+  spawnHearts();
+  navigateToPage('/support');
+  closeMenu();
+}
 </script>
 
 <template>
@@ -127,6 +266,20 @@ function isChildActive(parentTo: string, hash: string) {
         </div>
 
         <div class="flex items-center gap-2">
+          <!-- Enlace a npm -->
+          <a
+            href="https://www.npmjs.com/package/savia-ui"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center justify-center size-12 rounded-[var(--radius-field)] text-leaf-muted hover:text-mist hover:bg-mist/5 transition-colors"
+            aria-label="Ver paquete en npm"
+          >
+            <svg class="size-11" viewBox="0 0 48 48" fill="currentColor">
+              <rect x="21.6" y="19.9" width="2.4" height="4.84"/>
+              <path d="M2,15V29.7H14.2v2.5H24V29.7H46V15ZM14.2,27.2H11.8V19.9H9.3v7.3H4.5V17.5h9.7Zm12.3,0H21.6v2.5H16.7V17.5h9.8Zm17.1,0H41.2V19.9H38.7v7.3H36.2V19.9H33.8v7.3H28.9V17.5H43.6Z"/>
+            </svg>
+          </a>
+
           <!-- Enlace a GitHub -->
           <a
             href="https://github.com/drzz21/savia-ui"
@@ -178,7 +331,7 @@ function isChildActive(parentTo: string, hash: string) {
     <!-- Sidebar / Drawer -->
     <aside
       :class="[
-        'fixed top-0 left-0 z-20 h-screen w-64 border-r border-leaf-muted/15 bg-garden-night flex flex-col px-3 pt-24 pb-8 overflow-y-auto transition-transform duration-300 ease-out',
+        'fixed top-0 left-0 z-20 h-screen w-64 border-r border-leaf-muted/15 bg-garden-night flex flex-col px-3 pt-24 pb-24 overflow-y-auto transition-transform duration-300 ease-out',
         'lg:translate-x-0 lg:w-52 lg:z-10',
         menuOpen ? 'translate-x-0' : '-translate-x-full',
       ]"
@@ -235,12 +388,54 @@ function isChildActive(parentTo: string, hash: string) {
               </button>
             </div>
           </Transition>
+          <hr v-if="item.dividerAfter" class="border-leaf-muted/15 my-2" />
         </div>
       </nav>
 
       <div class="flex-1"></div>
-      <p class="text-[10px] text-leaf-muted/50 px-2">v0.1.0</p>
+
     </aside>
+
+    <!-- Support button (fixed bottom of sidebar) -->
+    <div class="fixed bottom-0 left-0 z-30 w-52 px-3 pb-4 pt-3 hidden lg:block bg-garden-night border-r border-leaf-muted/15">
+      <p class="text-[10px] text-leaf-muted/50 mb-2">v0.0.5</p>
+      <!-- Corazones animados -->
+      <div
+        v-for="heart in hearts"
+        :key="heart.id"
+        class="absolute pointer-events-none heart-float"
+        :style="{
+          left: `calc(50% + ${heart.x}px)`,
+          bottom: '40px',
+          fontSize: `${heart.size}px`,
+          animationDelay: `${heart.delay}s`,
+        }"
+      >
+        <svg :width="heart.size" :height="heart.size" viewBox="0 0 24 24" fill="currentColor" class="text-bloom-coral">
+          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+        </svg>
+      </div>
+
+      <button
+      v-if="false"
+        :class="[
+          'flex items-center justify-center gap-2 w-full px-3 py-2.5 rounded-[var(--radius-field)] transition-colors text-sm font-medium group cursor-pointer',
+          isActive('/support')
+            ? 'bg-bloom-coral/20 text-bloom-coral'
+            : 'bg-bloom-coral/10 hover:bg-bloom-coral/20 text-bloom-coral',
+        ]"
+        @click="handleDonateClick"
+      >
+        <svg
+          class="size-4 transition-transform group-hover:scale-110"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+        >
+          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+        </svg>
+        <span>Support</span>
+      </button>
+    </div>
 
     <!-- Main -->
     <main class="lg:ml-52">
@@ -277,5 +472,24 @@ function isChildActive(parentTo: string, hash: string) {
   opacity: 1;
   max-height: 500px;
   transform: translateY(0);
+}
+
+@keyframes heart-float {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translateY(-30px) scale(1.1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-70px) scale(0.6);
+  }
+}
+
+.heart-float {
+  animation: heart-float 1s ease-out forwards;
 }
 </style>

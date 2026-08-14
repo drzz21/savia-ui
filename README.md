@@ -36,11 +36,25 @@ import { SButton, SCard, SCode } from 'savia-ui'
 
 | Component | Description |
 |---|---|
+| `SAccordion` | Collapsible content panels (single or multiple open) |
+| `SBadge` | Inline label with variants, types, sizes, pill, and dot |
+| `SBreadcrumbs` | Navigation breadcrumb trail with separator styles |
 | `SButton` | Flexible button with variants, types, sizes, and icons |
 | `SCard` | Surface container with ambient shadow |
+| `SCheckbox` | Custom checkbox with indeterminate support |
 | `SCode` | Code block with syntax highlighting and copy button |
+| `SDivider` | Horizontal/vertical separator with optional label |
+| `SFileUpload` | Drag-and-drop file upload with validation |
+| `SInputText` | Text input with label, icons, clearable, and validation |
+| `SLoader` | Animated loading spinner with size and color variants |
+| `SMasonry` | CSS multi-column masonry layout |
+| `SModal` | Dialog overlay with sizes and persistent mode |
+| `SRadio` | Radio button with size options |
+| `SSpace` | Spacing component using design tokens |
+| `SStepper` | Step indicator (horizontal/vertical, clickable) |
+| `STabs` | Tab navigation with default, pills, underline, and boxed variants |
 
-> More components will be added soon.
+> Full documentation with interactive examples at [drzz21.github.io/savia-ui](https://drzz21.github.io/savia-ui/)
 
 ## Basic Examples
 
@@ -69,10 +83,42 @@ import { SButton, SCard, SCode } from 'savia-ui'
 </SCard>
 ```
 
-### SCode
+### STabs
 
 ```vue
-<SCode code="const x = 42;" language="typescript" />
+<script setup>
+import { ref } from 'vue'
+import { STabs, STabPanel } from 'savia-ui'
+
+const active = ref('profile')
+</script>
+
+<template>
+  <STabs v-model="active" variant="underline">
+    <STabPanel id="profile" label="Profile">Profile content</STabPanel>
+    <STabPanel id="settings" label="Settings">Settings content</STabPanel>
+    <STabPanel id="billing" label="Billing" disabled>Billing content</STabPanel>
+  </STabs>
+</template>
+```
+
+### SRadio
+
+```vue
+<script setup>
+import { ref } from 'vue'
+import { SRadio, SSpace } from 'savia-ui'
+
+const selected = ref('vue')
+</script>
+
+<template>
+  <SSpace size="spacious">
+    <SRadio v-model="selected" value="vue" label="Vue" name="framework" />
+    <SRadio v-model="selected" value="react" label="React" name="framework" />
+    <SRadio v-model="selected" value="svelte" label="Svelte" name="framework" />
+  </SSpace>
+</template>
 ```
 
 ## Requirements

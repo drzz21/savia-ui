@@ -4,14 +4,14 @@ import SCard from '../../components/SCard.vue';
 import SCode from '../../components/SCode.vue';
 
 function handleClick(event: MouseEvent) {
-  alert(`Click emitido! Coordenadas: (${event.clientX}, ${event.clientY})`);
+  alert(`Click! Coordinates: (${event.clientX}, ${event.clientY})`);
 }
 
 const code = `<script setup lang="ts">
-import SButton from './components/SButton.vue';
+${'import'} SButton from './components/SButton.vue';
 
 function handleClick(event: MouseEvent) {
-  alert(\`Click emitido! Coordenadas: (\${event.clientX}, \${event.clientY})\`);
+  alert(\`Click! Coordinates: (\${event.clientX}, \${event.clientY})\`);
 }
 <\/script>
 
